@@ -1,7 +1,8 @@
-from operator import contains
 import re
 
 def main():
+    print("Give language (d/e)")
+    language = input()
     while True:
         print("Give word")
         word = input()
@@ -11,16 +12,18 @@ def main():
         print("Give included letters")
         include = input()
 
-        english_words = load_words(len(word))
+        english_words = load_words(len(word), language)
         for english_word in english_words:
             if re.match(word, english_word) and hasntLetters(exclude, english_word) and hasLetters(include, english_word):
                 print(english_word)
 
-def load_words(length):
-    #with open('words-alpha.txt') as word_file:
-    with open('wordlist-german.txt') as word_file:
-
-        valid_words = set(word_file.read().split())
+def load_words(length, language):
+    if language.startswith("e"):
+        with open('words-alpha.txt') as word_file:
+            valid_words = set(word_file.read().split())
+    else:
+        with open('wordlist-german.txt') as word_file:
+            valid_words = set(word_file.read().split())
 
     words = set()
     for word in valid_words:
