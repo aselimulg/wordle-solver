@@ -17,8 +17,8 @@ def main():
                 print(english_word)
 
 def load_words(length):
-    #with open('/home/selim/Documents/wordle-solver/words-alpha.txt') as word_file:
-    with open('/home/selim/Documents/wordle-solver/wordlist-german.txt') as word_file:
+    #with open('words-alpha.txt') as word_file:
+    with open('wordlist-german.txt') as word_file:
 
         valid_words = set(word_file.read().split())
 
@@ -40,5 +40,5 @@ def hasntLetters(letters, word):
         if letter in word:
             return False
     return True
-    
+
 main()
