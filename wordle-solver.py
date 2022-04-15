@@ -33,9 +33,16 @@ def load_words(length, language):
     return words
 
 def hasLetters(letters, word):
-    for letter in letters:
-        if not letter in word:
-            return False
+    letter_list = letters.split()
+    for letter_position in letter_list:
+        for character in letter_position:
+            if character.isalpha():
+                letter = character
+                if letter not in word:
+                    return False
+            else:
+                if word[int(character) - 1] == letter:
+                    return False
     return True
 
 def hasntLetters(letters, word):
