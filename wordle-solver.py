@@ -1,7 +1,7 @@
 import re
 
 def main():
-    print ("Enter q after 'Give word' to end")
+    print ("Enter q after 'Give word' to end and c to clear the excluded letters list")
     print("Give language (d/e)")
     language = input()
     exclude = ""
@@ -11,6 +11,8 @@ def main():
 
         if word.lower() == "q":
             break
+        elif word.lower() == "c":
+            exclude = ""
 
         print("Give excluded letters")
         exclude += input()
