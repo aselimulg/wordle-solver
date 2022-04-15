@@ -13,6 +13,7 @@ def main():
             break
         elif word.lower() == "c":
             exclude = ""
+            continue
 
         print("Give excluded letters")
         exclude += input()
