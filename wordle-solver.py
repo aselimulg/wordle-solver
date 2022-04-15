@@ -1,20 +1,26 @@
 import re
 
 def main():
+    print ("Enter q after 'Give word' to end")
     print("Give language (d/e)")
     language = input()
+    exclude = ""
     while True:
         print("Give word")
         word = input()
+
+        if word.lower() == "q":
+            break
+
         print("Give excluded letters")
-        exclude = input()
+        exclude += input()
 
         print("Give included letters")
         include = input()
 
         english_words = load_words(len(word), language)
         for english_word in english_words:
-            if re.match(word, english_word) and hasntLetters(exclude, english_word) and hasLetters(include, english_word):
+            if re.match(word, english_word) and hasntLetters(exclude, english_word, word) and hasLetters(include, english_word):
                 print(english_word)
 
 def load_words(length, language):
@@ -45,7 +51,7 @@ def hasLetters(letters, word):
                     return False
     return True
 
-def hasntLetters(letters, word):
+def hasntLetters(letters, word, input_word):
     for letter in letters:
         if letter in word:
             return False
