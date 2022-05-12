@@ -56,7 +56,20 @@ def hasLetters(letters, word):
 
 def hasntLetters(letters, word, input_word):
     for letter in letters:
-        if letter in word:
+        input_count = 0
+        count = 0
+        if letter in input_word:
+            for input_letter in input_word:
+                if letter == input_letter:
+                    input_count = input_count + 1
+            for word_letter in word:
+                if letter == word_letter:
+                    count = count + 1
+            if count > input_count:
+                return False
+            else:
+                return True
+        elif letter in word:
             return False
     return True
 
