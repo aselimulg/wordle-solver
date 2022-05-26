@@ -23,7 +23,7 @@ def main():
 
         english_words = load_words(len(word), language)
         for english_word in english_words:
-            if re.match(word, english_word) and hasntLetters(exclude, english_word, word) and hasLetters(include, english_word):
+            if re.match(word, english_word) and hasntLetters(exclude, english_word, word) and hasLetters(include, english_word, word):
                 print(english_word)
 
 def load_words(length, language):
@@ -41,19 +41,28 @@ def load_words(length, language):
 
     return words
 
-def hasLetters(letters, word):
+def hasLetters(letters, word, input_word):
+    # Split character and position pairs
     letter_list = letters.split()
+
+    # Loop through every character position pairs
     for letter_position in letter_list:
+        # Loop through the positions
         for character in letter_position:
+            # If the char is a letter this is our letter
             if character.isalpha():
                 letter = character
-                if letter not in word:
+                # If the included character isn't in the word except for its positions in the input_word, return false
+                pos1 = getLetterCount(word, letter)
+                pos2 = getLetterCount(input_word, letter)
+                if not pos1 > pos2:
                     return False
             else:
                 if word[int(character) - 1] == letter:
                     return False
     return True
 
+# Returns true if the word doesn't contain the letter not counting the occurances in the input_word. 
 def hasntLetters(letters, word, input_word):
     for letter in letters:
         input_count = 0
@@ -72,5 +81,15 @@ def hasntLetters(letters, word, input_word):
         elif letter in word:
             return False
     return True
+
+# Get the occurance count of a letter in a word
+def getLetterCount(word, letter):
+    pos_list = []
+    count = 0
+    for char in word:
+        if char == letter:
+            pos_list.append(count)
+        count = count + 1
+    return len(pos_list)
 
 main()
