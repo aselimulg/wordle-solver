@@ -1,7 +1,4 @@
 import re
-import tkinter
-
-tkinter._test()
 
 def main():
     print ("Enter q after 'Give word' to end and c to clear the excluded letters list")
