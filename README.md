@@ -22,4 +22,6 @@ Example
 so, for included letters you type:
 `a34 e2`
 
+So basically everytime you see a grayed out letter, you type that in the excluded letters section, everytime you see a yellow letter, you type that and its position in the included letters section and everytime you see a green letter you type the letters in the correct positions with the missing letters as dots in the word section.
+
 The script will show you all the compatible words.
