@@ -1,4 +1,5 @@
 import re
+from pathlib import Path
 
 def main():
     print ("Enter q after 'Give word' to end and c to clear the excluded letters list")
@@ -27,11 +28,15 @@ def main():
                 print(english_word)
 
 def load_words(length, language):
+    currentPath = Path.cwd().parent
+    englishpath = currentPath / "wordlists" / "wordlist-english.txt"
+    germanpath = currentPath / "wordlists" / "wordlist-german.txt"
+
     if language.startswith("e"):
-        with open('words-alpha.txt') as word_file:
+        with open(englishpath) as word_file:
             valid_words = set(word_file.read().split())
     else:
-        with open('wordlist-german.txt') as word_file:
+        with open(germanpath) as word_file:
             valid_words = set(word_file.read().split())
 
     words = set()
@@ -92,4 +97,5 @@ def getLetterCount(word, letter):
         count = count + 1
     return len(pos_list)
 
-main()
+if __name__ == "__main__":
+    main()
