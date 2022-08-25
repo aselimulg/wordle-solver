@@ -15,5 +15,5 @@ def search():
 	word = form["wordleword"]
 	eletters = form["excluded-letters"]
 	iletters = form["included-letters"]
-	word_list = pob(word, eletters, iletters)
+	word_list = pob(word, eletters, iletters, 800)
 	return render_template('words.html', word_list=word_list)

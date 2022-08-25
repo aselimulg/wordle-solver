@@ -50,22 +50,23 @@ input[type=button]:hover {
 	background-color: #45a049;
 }
 
+.redirect {
+	text-decoration: none;
+	color: inherit
+}
+
 .grid {
 	display: inline-grid;
-	gap: 20px;
-	grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     grid-template-rows: 1fr;
-	grid-column: span 2;
-    grid-row: span 2;
-	grid-column-start: 2;
 }
 
 .field {
 	font-size: medium;
 }
 
-.words{
-	
+.container{
+	text-align: center;
 }
 
 .form {

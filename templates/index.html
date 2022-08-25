@@ -15,7 +15,7 @@
 <body>
     <script src="{{ url_for('static',filename='script.js') }}"> </script>
 
-    <h1>Wordle Solver</h1> <br>
+    <h1><a href="/" class="redirect">Wordle Solver</a></h1> <br>
     <div class="form">
         <form action="/search" id="form" method="post">
             <h3>Enter a word</h3>
@@ -29,7 +29,7 @@
             <button id="search" name="seach">Search</button>
         </form>
     </div>
-    <div>
+    <div class="container">
         {% block content %}
         <p>words</p>
         {% endblock %}

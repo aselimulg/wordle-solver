@@ -4,12 +4,14 @@ from pathlib import Path
 def main():
     play()
 
-def play_on_browser(word, eletters, iletters):
+def play_on_browser(word, eletters, iletters, limit):
     all_words = load_words(len(word), "e")
     word_list = []
     for a_word in all_words:
         if re.match(word, a_word) and hasntLetters(eletters, a_word, word) and hasLetters(iletters, a_word, word):
             word_list.append(a_word)
+    if limit < len(word_list):
+        return word_list[:limit]
     return word_list
 
 
