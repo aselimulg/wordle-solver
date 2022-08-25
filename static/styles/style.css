@@ -23,7 +23,7 @@ input[type=text]{
 	box-sizing: border-box;
 }
 
-input[type=submit] {
+button {
 	display: block;
 	width: 10em;
 	background-color: #4CAF50;
@@ -39,7 +39,25 @@ input[type=button]:hover {
 	background-color: #45a049;
 }
 
-div {
+.grid {
+	display: inline-grid;
+	gap: 20px;
+	grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    grid-template-rows: 1fr;
+	grid-column: span 2;
+    grid-row: span 2;
+	grid-column-start: 2;
+}
+
+.field {
+	font-size: medium;
+}
+
+.words{
+	
+}
+
+.form {
 	border-radius: 5px;
 	background-color: #f2f2f2;
 	padding: 1rem 2rem;

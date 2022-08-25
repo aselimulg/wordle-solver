@@ -8,7 +8,7 @@ def play_on_browser(word, eletters, iletters):
     all_words = load_words(len(word), "e")
     word_list = []
     for a_word in all_words:
-        if re.match(word, a_word) and hasntLetters(eletters, all_words, word) and hasLetters(iletters, all_words, word):
+        if re.match(word, a_word) and hasntLetters(eletters, a_word, word) and hasLetters(iletters, a_word, word):
             word_list.append(a_word)
     return word_list
 

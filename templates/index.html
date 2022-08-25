@@ -16,19 +16,23 @@
     <script src="{{ url_for('static',filename='script.js') }}"> </script>
 
     <h1>Wordle Solver</h1> <br>
-    <div>
-
-        <form action="/search">
+    <div class="form">
+        <form action="/search" id="form" method="post">
             <h3>Enter a word</h3>
-            <input type="text" id="wword" name="wordleword">
+            <input type="text" class="field" id="wword" name="wordleword">
 
-            <h3>Enter a excluded letters</h3>
-            <input type="text" id="eletters" name="excluded-letters">
+            <h3>Enter excluded letters</h3>
+            <input type="text" class="field" id="eletters" name="excluded-letters">
 
-            <h3>Enter a included</h3>
-            <input type="text" id="iletters" name="included-letters">
-            <input type="submit" id="search" value="Search">
+            <h3>Enter included letters</h3>
+            <input type="text" class="field" id="iletters" name="included-letters">
+            <button id="search" name="seach">Search</button>
         </form>
+    </div>
+    <div>
+        {% block content %}
+        <p>words</p>
+        {% endblock %}
     </div>
 </body>
 
